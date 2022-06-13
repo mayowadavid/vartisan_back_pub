@@ -1,0 +1,3321 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Employee {
+  id: String!
+  firstName: String!
+  lastName: String!
+  designation: String!
+  city: String!
+  project: Project!
+  projectId: String!
+}
+
+type Project {
+  id: String!
+  name: String!
+  code: Int!
+  employees: [Employee!]
+}
+
+type OrderFaq {
+  id: String!
+
+  """faq name"""
+  name: String!
+
+  """faq status"""
+  status: String!
+
+  """faq description"""
+  description: String!
+
+  """order requirement"""
+  order: Order!
+
+  """orderId"""
+  orderId: String!
+}
+
+type OrderRequirement {
+  id: String!
+
+  """order description"""
+  description: String
+
+  """requirement creation date"""
+  date: String
+
+  """order reference"""
+  reference: String
+
+  """order color"""
+  color: String
+
+  """order requirement id"""
+  orderId: String
+
+  """order description file"""
+  descriptionFile: File
+
+  """order reference file"""
+  referenceFile: File
+
+  """order color file"""
+  colorFile: File
+
+  """order requirement"""
+  order: Order
+}
+
+type Order {
+  id: String!
+
+  """name"""
+  name: String
+
+  """order quantity"""
+  quantity: String
+
+  """category"""
+  category: String
+
+  """date"""
+  date: String
+
+  """gig image"""
+  gigImage: String
+
+  """revision"""
+  revision: String
+
+  """approve date"""
+  approveDate: String
+
+  """vartisan"""
+  vartisan: String
+
+  """order status"""
+  orderStatus: String
+
+  """order amount"""
+  amount: String
+
+  """order source file"""
+  sourceFile: Boolean
+
+  """commercial order"""
+  commercial: Boolean
+
+  """rush order"""
+  rushOrder: Boolean
+
+  """private order"""
+  privateOrder: Boolean
+
+  """rush order amount"""
+  rushOrderAmount: String
+
+  """rush order delivery"""
+  rushOrderDelivery: String
+
+  """commercial order amount"""
+  commercialOrderAmount: String
+
+  """commercial order delivery"""
+  commercialOrderDelivery: String
+
+  """private order amount"""
+  privateOrderAmount: String
+
+  """private order delivery"""
+  privateOrderDelivery: String
+
+  """order end"""
+  end: String
+
+  """order total"""
+  total: String
+
+  """order gig id"""
+  gigId: String
+
+  """order requirement id"""
+  orderRequirementId: String
+
+  """order seller id"""
+  sellerId: String
+
+  """order client id"""
+  clientId: String
+
+  """user orders seller"""
+  seller: User
+
+  """user orders client"""
+  client: User
+
+  """gig order"""
+  gig: Gig
+
+  """order message"""
+  message: [Message!]
+
+  """order requirement"""
+  orderFaq: [OrderFaq!]
+
+  """order faq id"""
+  orderFaqId: String
+
+  """order requirement"""
+  orderRequirement: OrderRequirement
+}
+
+type Message {
+  id: String!
+
+  """message date"""
+  date: String
+
+  """message time"""
+  time: String
+
+  """message description"""
+  description: String
+
+  """user Id"""
+  userId: String
+
+  """message file Id"""
+  fileId: String
+
+  """order Id"""
+  orderId: String
+
+  """message chat Id"""
+  chatId: String
+
+  """chat messages"""
+  user: User
+
+  """message file"""
+  file: [File!]
+
+  """chat messages"""
+  chat: Chat
+
+  """order messages"""
+  order: Order
+}
+
+type Chat {
+  id: String!
+
+  """chat sender id"""
+  senderId: String
+
+  """chat receiver id"""
+  receiverId: String
+
+  """user sender chat"""
+  sender: User
+
+  """user receiver chat"""
+  receiver: User
+
+  """chat messages"""
+  messageId: String
+
+  """chat messages"""
+  message: [Message!]
+}
+
+type Favorite {
+  id: String!
+
+  """name of gigs"""
+  gigs: String!
+
+  """gig id"""
+  gigId: String!
+
+  """user id"""
+  userId: String!
+
+  """Gig favorite"""
+  gig: Gig!
+
+  """user favorite"""
+  user: User!
+}
+
+type Notification {
+  id: String!
+
+  """notification name)"""
+  name: String
+
+  """notification description)"""
+  description: String
+
+  """notification date)"""
+  createdAt: String
+
+  """notification date)"""
+  userId: String
+
+  """user notification"""
+  user: User
+}
+
+type Transaction {
+  id: String!
+
+  """date"""
+  date: String
+
+  """description"""
+  description: String
+
+  """commission rate"""
+  commission: String
+
+  """transaction type"""
+  transactionType: String
+
+  """transactionSenderId"""
+  transactionSenderId: String
+
+  """transactionReceiverId"""
+  transactionReceiverId: String
+
+  """earningId"""
+  earningId: String
+
+  """transaction status"""
+  status: String
+
+  """earning transaction"""
+  earning: Earning!
+
+  """transactionSender"""
+  transactionSender: User!
+
+  """transactionReceiver"""
+  transactionReceiver: User!
+}
+
+type Earning {
+  id: String!
+
+  """withdrawn"""
+  withdrawn: String
+
+  """earning status"""
+  status: String
+
+  """overtime withdrawal"""
+  overtimeWithdrawn: String
+
+  """date"""
+  date: String
+
+  """pending Amount"""
+  pendingAmount: String
+
+  """monthly balance"""
+  balance: String
+
+  """overtime balance"""
+  overtimeEarnings: String
+
+  """user Id"""
+  userId: String
+
+  """gig Id"""
+  gigId: String
+
+  """gig transaction"""
+  transaction: [Transaction!]
+
+  """gig purchased"""
+  gig: [Gig!]
+
+  """user earning"""
+  user: User!
+}
+
+type User {
+  id: String!
+
+  """client username"""
+  userName: String
+
+  """client email"""
+  email: String
+
+  """client password"""
+  password: String
+
+  """profile Id"""
+  profileId: String
+
+  """order Id"""
+  orderId: String
+
+  """chat Id"""
+  chatId: String
+
+  """gig Id"""
+  gigId: String
+
+  """earning Id"""
+  earningId: String
+
+  """refresh token"""
+  refreshToken: String
+
+  """refresh token exp"""
+  refreshTokenExp: String
+
+  """registration date"""
+  createdAt: String
+
+  """user status"""
+  status: String
+
+  """sender transaction"""
+  transactionSender: [Transaction!]
+
+  """receiver transaction"""
+  transactionReceiver: [Transaction!]
+
+  """user comment"""
+  comment: [Comment!]
+
+  """user blog"""
+  blog: [Blog!]
+
+  """user reference"""
+  reference: [Reference!]
+
+  """user notification"""
+  notification: [Notification!]
+
+  """user orders client"""
+  receiver: [Chat!]
+
+  """user orders seller"""
+  sender: [Chat!]
+
+  """user orders client"""
+  client: [Order!]
+
+  """user orders seller"""
+  seller: [Order!]
+
+  """user earning"""
+  earning: Earning
+
+  """chat profile"""
+  profile: Profile
+
+  """user messages"""
+  message: [Message!]!
+
+  """Gig favorite"""
+  favorite: [Favorite!]
+
+  """gig"""
+  gig: [Gig!]
+}
+
+type Comment {
+  id: String
+
+  """comment description"""
+  description: String
+
+  """comment date"""
+  createdAt: String
+
+  """blog comment"""
+  blogId: String
+
+  """userId comment"""
+  userId: String
+
+  """user comment"""
+  user: User
+
+  """blog files"""
+  blog: Blog!
+}
+
+type Blog {
+  id: String!
+
+  """blog title"""
+  name: String
+
+  """blog date"""
+  createdAt: String
+
+  """blog content"""
+  description: String
+
+  """blog content mark down"""
+  descriptionMarkDown: String
+
+  """blog status"""
+  status: String
+
+  """blog slug"""
+  slug: String
+
+  """blog category id"""
+  categoryId: String
+
+  """blog file id"""
+  fileId: String
+
+  """blog comment id"""
+  commentId: String
+
+  """blog user id"""
+  userId: String
+
+  """blog category"""
+  user: User
+
+  """blog category"""
+  category: [Category!]
+
+  """blog image"""
+  file: File
+
+  """blog comment"""
+  comments: [Comment!]
+}
+
+type SubCategory {
+  id: String!
+
+  """category name"""
+  name: String
+
+  """category description"""
+  description: String
+
+  """subcategory status"""
+  status: String
+
+  """category id"""
+  categoryId: String
+
+  """gig id"""
+  gigId: String
+
+  """subCategory"""
+  category: Category
+
+  """gig"""
+  gig: [Gig!]
+}
+
+type Category {
+  id: String!
+
+  """category name"""
+  name: String
+
+  """category description"""
+  description: String
+
+  """category status"""
+  status: String
+
+  """display banner"""
+  displayBanner: Boolean
+
+  """sub category id"""
+  subCategoryId: String
+
+  """gig id"""
+  gigId: String
+
+  """blog id"""
+  blogId: String
+
+  """blog category"""
+  blog: Blog
+
+  """category image"""
+  file: File
+
+  """parent category"""
+  gig: [Gig!]
+
+  """parent category"""
+  subCategory: [Category!]
+}
+
+type CommercialUse {
+  id: String!
+
+  """status"""
+  status: Boolean
+
+  """price"""
+  price: String
+
+  """deliveryPeriod"""
+  deliveryPeriod: String
+
+  """gigId"""
+  gigId: String
+
+  """commercial use"""
+  gig: Gig
+}
+
+type GigFaq {
+  id: String!
+
+  """faq name"""
+  name: String
+
+  """faq description"""
+  description: String
+
+  """gig faq id"""
+  gigId: String
+
+  """Gig faq"""
+  gig: Gig!
+}
+
+type GigRequirement {
+  id: String!
+
+  """requirement name"""
+  requirementName: String
+
+  """requirement creation date"""
+  date: String
+
+  """required faq"""
+  required: Boolean
+
+  """faq text"""
+  text: Boolean
+
+  """faq link url"""
+  link: Boolean
+
+  """faq gig id"""
+  gigId: String
+
+  """Gig favorite"""
+  gig: Gig!
+}
+
+type GigTag {
+  id: String!
+
+  """tag name"""
+  name: String
+
+  """gig id"""
+  gigId: String
+
+  """Gig tags"""
+  gig: Gig!
+}
+
+type GigVideo {
+  id: String!
+
+  """gig name"""
+  name: String
+
+  """gig name"""
+  selected: Boolean
+
+  """fileId"""
+  fileId: String
+
+  """gig Id"""
+  gigId: String
+
+  """gallery video"""
+  gig: Gig!
+
+  """gig video"""
+  file: [File!]!
+}
+
+type GigGallery {
+  id: String!
+
+  """gig name"""
+  name: String
+
+  """gig gallery"""
+  selected: Boolean
+
+  """fileId"""
+  fileId: String
+
+  """gig Id"""
+  gigId: String
+
+  """gallery gallery"""
+  gig: Gig!
+
+  """gig Gallery"""
+  file: [File!]!
+}
+
+type Gigformat {
+  id: String!
+
+  """ai format name"""
+  ai: Boolean
+
+  """psd format name"""
+  psd: Boolean
+
+  """swf format name"""
+  swf: Boolean
+
+  """gif format name"""
+  gif: Boolean
+
+  """blend format name"""
+  blend: Boolean
+
+  """bmpr format name"""
+  bmpr: Boolean
+
+  """eps format name"""
+  eps: Boolean
+
+  """jpg format name"""
+  jpg: Boolean
+
+  """fig format name"""
+  fig: Boolean
+
+  """ico format name"""
+  ico: Boolean
+
+  """png format name"""
+  png: Boolean
+
+  """other format name"""
+  other: Boolean
+
+  """gig format"""
+  gig: Gig
+
+  """gig Id"""
+  gigId: String
+}
+
+type PrivateCommission {
+  id: String!
+
+  """status"""
+  status: Boolean
+
+  """price"""
+  price: String
+
+  """deliveryPeriod"""
+  deliveryPeriod: String
+
+  """gig id"""
+  gigId: String
+
+  """private commission"""
+  gig: Gig
+}
+
+type Rating {
+  id: String!
+
+  """rating up"""
+  thumbsUp: String!
+
+  """rating down"""
+  thumbsDown: String!
+
+  """reviews"""
+  reviews: String!
+
+  """Gig Rating"""
+  gig: [Gig!]!
+
+  """gig id"""
+  gigId: String!
+}
+
+type RushOrder {
+  id: String!
+
+  """status"""
+  status: Boolean
+
+  """price"""
+  price: String
+
+  """deliveryPeriod"""
+  deliveryPeriod: String
+
+  """gig id"""
+  gigId: String
+
+  """rush order"""
+  gig: Gig
+}
+
+type Gig {
+  id: String!
+
+  """gig name"""
+  name: String
+
+  """gig description"""
+  description: String
+
+  """gig delivery period"""
+  deliveryPeriod: String
+
+  """gig revision number"""
+  numberOfRevision: String
+
+  """gig source file"""
+  sourceFile: Boolean
+
+  """gig commercial"""
+  commercial: Boolean
+
+  """gig ai files"""
+  aiFiles: Boolean
+
+  """gig ai files"""
+  customIllustration: Boolean
+
+  """gig file id"""
+  fileId: String
+
+  """show order"""
+  showOrder: Boolean
+
+  """gig terms"""
+  terms: String
+
+  """gig price"""
+  amount: String
+
+  """gig category id"""
+  categoryId: String
+
+  """gig sub category id"""
+  subCategoryId: String
+
+  """gig status"""
+  status: String
+
+  """gig rating Id"""
+  ratingId: String
+
+  """gig gig format Id"""
+  gigFormatId: String
+
+  """gig refrence Id"""
+  favoriteId: String
+
+  """gig refrence Id"""
+  referenceId: String
+
+  """gig default refrence"""
+  defaultReference: String
+
+  """gig faq id"""
+  gigFaqId: String
+
+  """gig tag id"""
+  gigTagId: String
+
+  """rush order id"""
+  rushOrderId: String
+
+  """gig gallery id"""
+  gigGalleryId: String
+
+  """gig video id"""
+  gigVideoId: String
+
+  """gig private commission id"""
+  privateCommissionId: String
+
+  """gig commercial use id"""
+  commercialUseId: String
+
+  """user id"""
+  userId: String
+
+  """project date"""
+  createdAt: String
+
+  """earning id"""
+  earningId: String
+
+  """gig purchased"""
+  earning: Earning
+
+  """gig order"""
+  order: [Order!]
+
+  """rush order"""
+  rushOrder: RushOrder
+
+  """rush order"""
+  commercialUse: CommercialUse
+
+  """private commission"""
+  privateCommission: PrivateCommission
+
+  """gig category"""
+  category: Category
+
+  """user"""
+  user: User
+
+  """gig category"""
+  subCategory: SubCategory
+
+  """Client Reference"""
+  referenceGig: [Reference!]
+
+  """Gig tag"""
+  gigTag: [GigTag!]
+
+  """Gig favorite"""
+  favorite: [Favorite!]!
+
+  """gig format"""
+  gigFormat: Gigformat
+
+  """Gallery rating"""
+  rating: [Rating!]
+
+  """gig faq"""
+  gigFaq: [GigFaq!]
+
+  """gig requirement"""
+  gigRequirement: [GigRequirement!]
+
+  """gig gallery image"""
+  gigGallery: [GigGallery!]
+
+  """gallery video"""
+  gigVideo: [GigVideo!]
+}
+
+type Reference {
+  id: String!
+
+  """reference name"""
+  name: String
+
+  """reference description"""
+  description: String
+
+  """reference default"""
+  selected: Boolean
+
+  """reference id"""
+  fileId: String
+
+  """gig reference id"""
+  userId: String
+
+  """gig reference id"""
+  gigReferenceId: String
+
+  """user Reference"""
+  user: User
+
+  """Client Reference"""
+  file: File
+
+  """gig format"""
+  gigReference: Gig
+}
+
+type Banner {
+  id: String!
+
+  """file id"""
+  fileId: String
+
+  """bannerTitle"""
+  bannerTitle: String
+
+  """bannerMiddleContent"""
+  bannerMiddleContent: String
+
+  """bannerDescription"""
+  bannerDescription: String
+
+  """bannerFirstACtionTitle"""
+  bannerFirstActionTitle: String
+
+  """bannerSecondACtionTitle"""
+  bannerSecondACtionTitle: String
+
+  """bannerImage"""
+  file: [File!]
+}
+
+type FaqImage {
+  id: String!
+
+  """faq file"""
+  file: [File!]!
+
+  """fileId"""
+  fileId: String!
+}
+
+type File {
+  id: String!
+
+  """image"""
+  image: String
+
+  """url"""
+  name: String
+
+  """audio"""
+  audio: String
+
+  """video"""
+  video: String
+
+  """GIF"""
+  gif: String
+
+  """documents"""
+  document: String
+
+  """messagId"""
+  messageId: String
+
+  """order description file"""
+  descriptionFile: OrderRequirement
+
+  """order reference file"""
+  referenceFile: OrderRequirement
+
+  """order color file"""
+  colorFile: OrderRequirement
+
+  """profile image"""
+  profileImage: Profile
+
+  """banner id"""
+  bannerId: String
+
+  """home faq"""
+  faqImage: FaqImage
+
+  """Gig Video"""
+  gigVideo: GigVideo
+
+  """Gig Gallery"""
+  gigGallery: GigGallery
+
+  """Client Reference"""
+  clientReference: Reference
+
+  """category file"""
+  category: Category
+
+  """Chat files"""
+  message: Message
+
+  """banner Image"""
+  banner: Banner
+
+  """Blog files"""
+  blog: Blog
+}
+
+type Profile {
+  id: String!
+
+  """first name"""
+  firstName: String
+
+  """last name"""
+  lastName: String
+
+  """All active orders"""
+  activeOrders: String
+
+  """All completed orders"""
+  completedOrder: Float
+
+  """All canceled orders"""
+  canceledOrder: Float
+
+  """User specialization"""
+  specialization: String
+
+  """about User"""
+  description: String
+
+  """description mark down"""
+  descriptionMarkDown: String
+
+  """profile images"""
+  file: File
+
+  """file id"""
+  fileId: String
+
+  """User achievement"""
+  achievement: String
+
+  """User rank"""
+  rank: String
+
+  """User role"""
+  role: String
+
+  """User language"""
+  language: String
+
+  """User status"""
+  onlineStatus: Boolean
+
+  """user reference"""
+  reference: String
+
+  """user registration date"""
+  createdAt: String
+
+  """user profile"""
+  user: User!
+
+  """user id"""
+  userId: String
+}
+
+type Submenu {
+  id: String!
+
+  """menu name"""
+  name: String!
+
+  """menu url"""
+  menuUrl: String!
+
+  """menu id"""
+  menuId: String!
+  menu: Menu
+}
+
+type Menu {
+  id: String!
+
+  """menu name"""
+  name: String!
+
+  """menu url"""
+  menuUrl: String!
+  header: Header!
+
+  """header id"""
+  headerId: String!
+  submenu: [Submenu!]!
+
+  """subMenu id"""
+  subMenuId: String!
+}
+
+type Header {
+  id: String!
+
+  """headers name"""
+  name: String!
+
+  """headers menu"""
+  headerMenu: String!
+  menu: [Menu!]!
+  menuId: String!
+}
+
+type Home {
+  id: String!
+
+  """site name"""
+  siteName: String
+
+  """logo"""
+  logoUrl: String
+
+  """display Category"""
+  showCategory: Boolean
+
+  """display featured category"""
+  showFeatured: Boolean
+
+  """display latest delivery"""
+  showLatest: Boolean
+
+  """display site process"""
+  showProcess: Boolean
+
+  """display site faq"""
+  showFaq: Boolean
+
+  """display site optin"""
+  showOptin: Boolean
+  header: Header
+
+  """headerId"""
+  headerId: String
+}
+
+type Footer {
+  id: String!
+
+  """footer name"""
+  name: String!
+
+  """footer description"""
+  description: String!
+
+  """Menu"""
+  menu: String!
+}
+
+type Featured {
+  id: String!
+
+  """featured services"""
+  gigs: String!
+}
+
+type SocialMedia {
+  id: String!
+
+  """social name"""
+  name: String!
+
+  """social title"""
+  title: String!
+}
+
+type OrderTemplate {
+  id: String!
+
+  """user message"""
+  user: String!
+
+  """date"""
+  date: String!
+
+  """revision"""
+  revision: String!
+
+  """order status"""
+  orderStatus: String!
+
+  """order amount"""
+  amount: String!
+
+  """order count"""
+  orderCount: String!
+
+  """order source file"""
+  sourceFile: Boolean!
+
+  """commercial order"""
+  commercial: Boolean!
+
+  """rush order"""
+  rushOrder: Boolean!
+
+  """order end"""
+  end: String!
+}
+
+type Complaint {
+  id: String!
+  user: String!
+  description: String!
+}
+
+type HomeFaq {
+  id: String!
+
+  """faq name"""
+  name: String
+
+  """faq description"""
+  description: String
+}
+
+type OrderFeedback {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  getAllEmployees: [Employee!]!
+  findAnEmployee(id: String!): Employee!
+  GetAllprojects: [Project!]!
+  project(id: String!): Project!
+  getAllUsers: [User!]!
+  findUser(id: String!): User!
+  loginUser(userData: CreateUserInput!): User!
+  findUserByName(userName: String!): User!
+  findAllProfile: [Profile!]!
+  profile(id: String!): Profile!
+  findProfileName(userName: String!): Profile!
+  findUserProfile: Profile!
+  earnings: [Earning!]!
+  earning(id: String!): Earning!
+  getAllgig: [Gig!]!
+  gig(id: String!): Gig!
+  findGigByUser(userGig: UserGigInput!): Gig!
+  findAllUserGig: [Gig!]!
+  findAllOrders: [Order!]!
+  order(id: String!): Order!
+  findClientOrder: [Order!]!
+  findSellerOrder: [Order!]!
+  home(id: String!): Home!
+  categories: [Category!]!
+  category(id: String!): Category!
+  headers: [Header!]!
+  header(id: String!): Header!
+  menu(id: String!): Menu!
+  submenu(id: String!): Submenu!
+  footer(id: String!): Footer!
+  featured(id: String!): Featured!
+  gigformat(id: String!): Gigformat!
+  gigTags: [GigTag!]!
+  gigTag(id: String!): GigTag!
+  rating(id: String!): Rating!
+  chats: [Chat!]!
+  chatsByUser: [Chat!]!
+  chat(id: String!): Chat!
+  findChatByExistence(createChat: CreateChatInput!): Chat!
+  getAllmessages: [Message!]!
+  message(id: String!): Message!
+  socialMedia(id: String!): SocialMedia!
+  orderTemplate(id: String!): OrderTemplate!
+  files: [File!]!
+  file(id: String!): File!
+  orderRequirement(id: String!): OrderRequirement!
+  orderFaq(id: String!): OrderFaq!
+  favorites: [Favorite!]!
+  favorite(id: String!): Favorite!
+  blog(id: String!): Blog!
+  findBlogByUser: [Blog!]!
+  comments: [Comment!]!
+  comment(id: String!): Comment!
+  complaints: [Complaint!]!
+  complaint(id: String!): Complaint!
+  homeFaq(id: String!): HomeFaq!
+  getAllreference: [Reference!]!
+  findReferenceByUser: [Reference!]!
+  findOnereference(id: String!): Reference!
+  notifications: [Notification!]!
+  findUserNotification: [Notification!]!
+  notification(id: String!): Notification!
+  findAllbanner: [Banner!]!
+  findbanner(id: String!): Banner!
+  faqImage(id: String!): FaqImage!
+  getAllSubCategory: [SubCategory!]!
+  subCategory(id: String!): SubCategory!
+  rushOrder(id: String!): RushOrder!
+  commercialUse(id: String!): CommercialUse!
+  privateCommission(id: String!): PrivateCommission!
+  gigFaq(id: String!): GigFaq!
+  gigRequirement(id: String!): GigRequirement!
+  gigGallery(id: String!): GigGallery!
+  gigVideo(id: String!): GigVideo!
+  orderFeedback(id: Int!): OrderFeedback!
+  transaction(id: String!): Transaction!
+}
+
+input CreateUserInput {
+  """client username"""
+  userName: String
+
+  """client email"""
+  email: String
+
+  """client password"""
+  password: String
+
+  """profile Id"""
+  profileId: String
+
+  """order Id"""
+  orderId: String
+
+  """chat Id"""
+  chatId: String
+
+  """gig Id"""
+  gigId: String
+
+  """earning Id"""
+  earningId: String
+
+  """refresh token"""
+  refreshToken: String
+
+  """refresh token exp"""
+  refreshTokenExp: String
+
+  """registration date"""
+  createdAt: String
+}
+
+input UserGigInput {
+  """gig name"""
+  name: String
+
+  """user name"""
+  userName: String
+}
+
+input CreateChatInput {
+  """message Id"""
+  messageId: String
+
+  """chat sender id"""
+  senderId: String
+
+  """chat receiver id"""
+  receiverId: String
+}
+
+type Mutation {
+  createEmployee(employeeInput: EmployeeCreatedDTO!): Employee!
+  createProject(Project: CreateProjectInput!): Project!
+  updateProject(project: UpdateProjectInput!): Project!
+  deleteProject(id: String!): Project!
+  createUser(createUser: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: UpdateUserInput!): User!
+  createProfile(createProfileInput: CreateProfileInput!): Profile!
+  updateProfile(updateProfileInput: UpdateProfileInput!): Profile!
+  removeProfile(id: String!): Profile!
+  createEarning(createEarningInput: CreateEarningInput!): Earning!
+  removeEarning(id: String!): Earning!
+  creategig(createGigInput: CreateGigInput!): Gig!
+  updateGig(updateGigInput: UpdateGigInput!): Gig!
+  removeGig(id: String!): Gig!
+  createOrder(createOrderInput: CreateOrderInput!): Order!
+  updateOrder(updateOrderInput: UpdateOrderInput!): Order!
+  removeOrder(id: String!): Order!
+  createHome(createHomeInput: CreateHomeInput!): Home!
+  updateHome(updateHomeInput: UpdateHomeInput!): Home!
+  removeHome(id: String!): Home!
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+  removeCategory(id: String!): Category!
+  createHeader(createHeaderInput: CreateHeaderInput!): Header!
+  updateHeader(updateHeaderInput: UpdateHeaderInput!): Header!
+  removeHeader(id: String!): Header!
+  createMenu(createMenuInput: CreateMenuInput!): Menu!
+  updateMenu(updateMenuInput: UpdateMenuInput!): Menu!
+  removeMenu(id: String!): Menu!
+  createSubmenu(createSubmenuInput: CreateSubmenuInput!): Submenu!
+  updateSubmenu(updateSubmenuInput: UpdateSubmenuInput!): Submenu!
+  removeSubmenu(id: String!): Submenu!
+  createFooter(createFooterInput: CreateFooterInput!): Footer!
+  updateFooter(updateFooterInput: UpdateFooterInput!): Footer!
+  removeFooter(id: String!): Footer!
+  createFeatured(createFeaturedInput: CreateFeaturedInput!): Featured!
+  updateFeatured(updateFeaturedInput: UpdateFeaturedInput!): Featured!
+  removeFeatured(id: String!): Featured!
+  createGigformat(createGigformatInput: CreateGigformatInput!): Gigformat!
+  updateGigformat(updateGigformatInput: UpdateGigformatInput!): Gigformat!
+  removeGigformat(id: String!): Gigformat!
+  createGigTag(createGigTagInput: CreateGigTagInput!): GigTag!
+  updateGigTag(updateGigTagInput: UpdateGigTagInput!): GigTag!
+  removeGigTag(id: String!): GigTag!
+  createRating(createRatingInput: CreateRatingInput!): Rating!
+  updateRating(updateRatingInput: UpdateRatingInput!): Rating!
+  removeRating(id: String!): Rating!
+  createChat(createChat: CreateChatInput!): Chat!
+  updateChat(updateChatInput: UpdateChatInput!): Chat!
+  removeChat(id: String!): Chat!
+  createMessage(createMessageInput: CreateMessageInput!): Message!
+  updateMessage(updateMessageInput: UpdateMessageInput!): Message!
+  removeMessage(id: String!): Message!
+  createSocialMedia(createSocialMediaInput: CreateSocialMediaInput!): SocialMedia!
+  updateSocialMedia(updateSocialMediaInput: UpdateSocialMediaInput!): SocialMedia!
+  removeSocialMedia(id: String!): SocialMedia!
+  createOrderTemplate(createOrderTemplateInput: CreateOrderTemplateInput!): OrderTemplate!
+  updateOrderTemplate(updateOrderTemplateInput: UpdateOrderTemplateInput!): OrderTemplate!
+  removeOrderTemplate(id: String!): OrderTemplate!
+  createFile(createFileInput: CreateFileInput!): File!
+  updateFile(updateFileInput: UpdateFileInput!): File!
+  removeFile(id: String!): File!
+  createOrderRequirement(createOrderRequirementInput: CreateOrderRequirementInput!): OrderRequirement!
+  updateOrderRequirement(updateOrderRequirementInput: UpdateOrderRequirementInput!): OrderRequirement!
+  removeOrderRequirement(id: String!): OrderRequirement!
+  createOrderFaq(createOrderFaqInput: CreateOrderFaqInput!): OrderFaq!
+  updateOrderFaq(updateOrderFaqInput: UpdateOrderFaqInput!): OrderFaq!
+  removeOrderFaq(id: String!): OrderFaq!
+  createFavorite(createFavoriteInput: CreateFavoriteInput!): Favorite!
+  updateFavorite(updateFavoriteInput: UpdateFavoriteInput!): Favorite!
+  removeFavorite(id: String!): Favorite!
+  createBlog(createBlogInput: CreateBlogInput!): Blog!
+  updateBlog(updateBlogInput: UpdateBlogInput!): Blog!
+  removeBlog(id: String!): Blog!
+  createComment(createCommentInput: CreateCommentInput!): Comment!
+  updateComment(updateCommentInput: UpdateCommentInput!): Comment!
+  removeComment(id: String!): Comment!
+  createComplaint(createComplaintInput: CreateComplaintInput!): Complaint!
+  updateComplaint(updateComplaintInput: UpdateComplaintInput!): Complaint!
+  removeComplaint(id: String!): Complaint!
+  createHomeFaq(createHomeFaqInput: CreateHomeFaqInput!): HomeFaq!
+  updateHomeFaq(updateHomeFaqInput: UpdateHomeFaqInput!): HomeFaq!
+  removeHomeFaq(id: String!): HomeFaq!
+  createReference(createReferenceInput: CreateReferenceInput!): Reference!
+  updateReference(updateReferenceInput: UpdateReferenceInput!): Reference!
+  removeReference(id: String!): Reference!
+  createNotification(createNotificationInput: CreateNotificationInput!): Notification!
+  updateNotification(updateNotificationInput: UpdateNotificationInput!): Notification!
+  removeNotification(id: String!): Notification!
+  createBanner(createBannerInput: CreateBannerInput!): Banner!
+  updateBanner(updateBannerInput: UpdateBannerInput!): Banner!
+  removeBanner(id: String!): Banner!
+  createFaqImage(createFaqImageInput: CreateFaqImageInput!): FaqImage!
+  updateFaqImage(updateFaqImageInput: UpdateFaqImageInput!): FaqImage!
+  removeFaqImage(id: String!): FaqImage!
+  createSubCategory(createSubCategoryInput: CreateSubCategoryInput!): SubCategory!
+  updateSubCategory(updateSubCategoryInput: UpdateSubCategoryInput!): SubCategory!
+  removeSubCategory(id: String!): SubCategory!
+  createRushOrder(createRushOrderInput: CreateRushOrderInput!): RushOrder!
+  updateRushOrder(updateRushOrderInput: UpdateRushOrderInput!): RushOrder!
+  removeRushOrder(id: String!): RushOrder!
+  createCommercialUse(createCommercialUseInput: CreateCommercialUseInput!): CommercialUse!
+  updateCommercialUse(updateCommercialUseInput: UpdateCommercialUseInput!): CommercialUse!
+  removeCommercialUse(id: String!): CommercialUse!
+  createPrivateCommission(createPrivateCommissionInput: CreatePrivateCommissionInput!): PrivateCommission!
+  updatePrivateCommission(updatePrivateCommissionInput: UpdatePrivateCommissionInput!): PrivateCommission!
+  removePrivateCommission(id: String!): PrivateCommission!
+  createGigFaq(createGigFaqInput: CreateGigFaqInput!): GigFaq!
+  updateGigFaq(updateGigFaqInput: UpdateGigFaqInput!): GigFaq!
+  removeGigFaq(id: String!): GigFaq!
+  createGigRequirement(createGigRequirementInput: CreateGigRequirementInput!): GigRequirement!
+  updateGigRequirement(updateGigRequirementInput: UpdateGigRequirementInput!): GigRequirement!
+  removeGigRequirement(id: String!): GigRequirement!
+  createGigGallery(createGigGalleryInput: CreateGigGalleryInput!): GigGallery!
+  updateGigGallery(updateGigGalleryInput: UpdateGigGalleryInput!): GigGallery!
+  removeGigGallery(id: String!): GigGallery!
+  createGigVideo(createGigVideoInput: CreateGigVideoInput!): GigVideo!
+  updateGigVideo(updateGigVideoInput: UpdateGigVideoInput!): GigVideo!
+  removeGigVideo(id: String!): GigVideo!
+  createOrderFeedback(createOrderFeedbackInput: CreateOrderFeedbackInput!): OrderFeedback!
+  updateOrderFeedback(updateOrderFeedbackInput: UpdateOrderFeedbackInput!): OrderFeedback!
+  removeOrderFeedback(id: Int!): OrderFeedback!
+  createTransaction(createTransactionInput: CreateTransactionInput!): Transaction!
+  updateTransaction(updateTransactionInput: UpdateTransactionInput!): Transaction!
+  removeTransaction(id: String!): Transaction!
+}
+
+input EmployeeCreatedDTO {
+  firstName: String!
+  lastName: String!
+  designation: String!
+  city: String!
+  projectId: String!
+}
+
+input CreateProjectInput {
+  name: String!
+  code: Float!
+}
+
+input UpdateProjectInput {
+  name: String
+  code: Float
+  id: String
+}
+
+input UpdateUserInput {
+  """client username"""
+  userName: String
+
+  """client email"""
+  email: String
+
+  """client password"""
+  password: String
+
+  """profile Id"""
+  profileId: String
+
+  """order Id"""
+  orderId: String
+
+  """chat Id"""
+  chatId: String
+
+  """gig Id"""
+  gigId: String
+
+  """earning Id"""
+  earningId: String
+
+  """refresh token"""
+  refreshToken: String
+
+  """refresh token exp"""
+  refreshTokenExp: String
+
+  """registration date"""
+  createdAt: String
+  id: String!
+
+  """user status"""
+  status: String
+}
+
+input CreateProfileInput {
+  """first name"""
+  firstName: String
+
+  """last name"""
+  lastName: String
+
+  """All active orders"""
+  activeOrders: String
+
+  """All completed orders"""
+  completedOrder: Float
+
+  """All canceled orders"""
+  canceledOrder: Float
+
+  """User specialization"""
+  specialization: String
+
+  """about User"""
+  description: String
+
+  """description mark down"""
+  descriptionMarkDown: String
+
+  """file Id"""
+  fileId: String
+
+  """User achievement"""
+  achievement: String
+
+  """User rank"""
+  rank: String
+
+  """User language"""
+  language: String
+
+  """User status"""
+  onlineStatus: Boolean
+
+  """user registration date"""
+  createdAt: String
+
+  """user id"""
+  userId: String
+}
+
+input UpdateProfileInput {
+  """first name"""
+  firstName: String
+
+  """last name"""
+  lastName: String
+
+  """All active orders"""
+  activeOrders: String
+
+  """All completed orders"""
+  completedOrder: Float
+
+  """All canceled orders"""
+  canceledOrder: Float
+
+  """User specialization"""
+  specialization: String
+
+  """about User"""
+  description: String
+
+  """description mark down"""
+  descriptionMarkDown: String
+
+  """file Id"""
+  fileId: String
+
+  """User achievement"""
+  achievement: String
+
+  """User rank"""
+  rank: String
+
+  """User language"""
+  language: String
+
+  """User status"""
+  onlineStatus: Boolean
+
+  """user registration date"""
+  createdAt: String
+
+  """user id"""
+  userId: String
+  id: String!
+
+  """user role"""
+  role: String
+}
+
+input CreateEarningInput {
+  """withdrawn"""
+  withdrawn: String
+
+  """status"""
+  status: String
+
+  """overtime withdrawal"""
+  overtimeWithdrawn: String
+
+  """date"""
+  date: String
+
+  """pending Amount"""
+  pendingAmount: String
+
+  """gig purchased id"""
+  gigId: String
+
+  """monthly balance"""
+  balance: String
+
+  """overtime balance"""
+  overtimeEarnings: String
+
+  """overtime balance"""
+  userId: String
+}
+
+input CreateGigInput {
+  """gig name"""
+  name: String
+
+  """gig description"""
+  description: String
+
+  """gig delivery period"""
+  deliveryPeriod: String
+
+  """gig revision number"""
+  numberOfRevision: String
+
+  """gig revision number"""
+  sourceFile: Boolean
+
+  """gig commercial"""
+  commercial: Boolean
+
+  """gig ai files"""
+  aiFiles: Boolean
+
+  """gig ai files"""
+  customIllustration: Boolean
+
+  """video gallery id"""
+  galleryVideoId: String
+
+  """image gallery id"""
+  galleryImageId: String
+
+  """gig file id"""
+  fileId: String
+
+  """show order"""
+  showOrder: Boolean
+
+  """gig terms"""
+  terms: String
+
+  """gig price"""
+  amount: String
+
+  """gig category id"""
+  categoryId: String
+
+  """gig sub category id"""
+  subCategoryId: String
+
+  """gig sub category id"""
+  status: String
+
+  """gig rating Id"""
+  ratingId: String
+
+  """gig gig format Id"""
+  gigFormatId: String
+
+  """gig tag id"""
+  gigTagId: String
+
+  """rush order id"""
+  rushOrderId: String
+
+  """gig private commission id"""
+  privateCommissionId: String
+
+  """gig commercial use id"""
+  commercialUseId: String
+
+  """user id"""
+  userId: String
+
+  """project date"""
+  createdAt: String
+
+  """gig refrence Id"""
+  favoriteId: String
+
+  """gig refrence Id"""
+  referenceId: String
+
+  """gig default refrence"""
+  defaultReference: String
+
+  """gig faq id"""
+  gigFaqId: String
+
+  """gig video id"""
+  gigVideoId: String
+
+  """gig gallery id"""
+  gigGalleryId: String
+
+  """earning id"""
+  earningId: String
+}
+
+input UpdateGigInput {
+  """gig name"""
+  name: String
+
+  """gig description"""
+  description: String
+
+  """gig delivery period"""
+  deliveryPeriod: String
+
+  """gig revision number"""
+  numberOfRevision: String
+
+  """gig revision number"""
+  sourceFile: Boolean
+
+  """gig commercial"""
+  commercial: Boolean
+
+  """gig ai files"""
+  aiFiles: Boolean
+
+  """gig ai files"""
+  customIllustration: Boolean
+
+  """video gallery id"""
+  galleryVideoId: String
+
+  """image gallery id"""
+  galleryImageId: String
+
+  """gig file id"""
+  fileId: String
+
+  """show order"""
+  showOrder: Boolean
+
+  """gig terms"""
+  terms: String
+
+  """gig price"""
+  amount: String
+
+  """gig category id"""
+  categoryId: String
+
+  """gig sub category id"""
+  subCategoryId: String
+
+  """gig sub category id"""
+  status: String
+
+  """gig rating Id"""
+  ratingId: String
+
+  """gig gig format Id"""
+  gigFormatId: String
+
+  """gig tag id"""
+  gigTagId: String
+
+  """rush order id"""
+  rushOrderId: String
+
+  """gig private commission id"""
+  privateCommissionId: String
+
+  """gig commercial use id"""
+  commercialUseId: String
+
+  """user id"""
+  userId: String
+
+  """project date"""
+  createdAt: String
+
+  """gig refrence Id"""
+  favoriteId: String
+
+  """gig refrence Id"""
+  referenceId: String
+
+  """gig default reference"""
+  defaultReference: String
+
+  """gig faq id"""
+  gigFaqId: String
+
+  """gig video id"""
+  gigVideoId: String
+
+  """gig gallery id"""
+  gigGalleryId: String
+
+  """earning id"""
+  earningId: String
+  id: String!
+}
+
+input CreateOrderInput {
+  """name"""
+  name: String
+
+  """order quantity"""
+  quantity: String
+
+  """category"""
+  category: String
+
+  """date"""
+  date: String
+
+  """gig image"""
+  gigImage: String
+
+  """revision"""
+  revision: String
+
+  """approve date"""
+  approveDate: String
+
+  """order status"""
+  orderStatus: String
+
+  """order amount"""
+  amount: String
+
+  """order source file"""
+  sourceFile: Boolean
+
+  """commercial order"""
+  commercial: Boolean
+
+  """rush order"""
+  rushOrder: Boolean
+
+  """private order"""
+  privateOrder: Boolean
+
+  """rush order amount"""
+  rushOrderAmount: String
+
+  """rush order delivery"""
+  rushOrderDelivery: String
+
+  """commercial order amount"""
+  commercialOrderAmount: String
+
+  """commercial order delivery"""
+  commercialOrderDelivery: String
+
+  """private order amount"""
+  privateOrderAmount: String
+
+  """private order delivery"""
+  privateOrderDelivery: String
+
+  """order end"""
+  end: String
+
+  """order total"""
+  total: String
+
+  """order faq id"""
+  orderFaqId: String
+
+  """order requirement id"""
+  orderRequirementId: String
+
+  """order gig id"""
+  gigId: String
+
+  """order seller id"""
+  sellerId: String
+
+  """order client id"""
+  clientId: String
+}
+
+input UpdateOrderInput {
+  """name"""
+  name: String
+
+  """order quantity"""
+  quantity: String
+
+  """category"""
+  category: String
+
+  """date"""
+  date: String
+
+  """gig image"""
+  gigImage: String
+
+  """revision"""
+  revision: String
+
+  """approve date"""
+  approveDate: String
+
+  """order status"""
+  orderStatus: String
+
+  """order amount"""
+  amount: String
+
+  """order source file"""
+  sourceFile: Boolean
+
+  """commercial order"""
+  commercial: Boolean
+
+  """rush order"""
+  rushOrder: Boolean
+
+  """private order"""
+  privateOrder: Boolean
+
+  """rush order amount"""
+  rushOrderAmount: String
+
+  """rush order delivery"""
+  rushOrderDelivery: String
+
+  """commercial order amount"""
+  commercialOrderAmount: String
+
+  """commercial order delivery"""
+  commercialOrderDelivery: String
+
+  """private order amount"""
+  privateOrderAmount: String
+
+  """private order delivery"""
+  privateOrderDelivery: String
+
+  """order end"""
+  end: String
+
+  """order total"""
+  total: String
+
+  """order faq id"""
+  orderFaqId: String
+
+  """order requirement id"""
+  orderRequirementId: String
+
+  """order gig id"""
+  gigId: String
+
+  """order seller id"""
+  sellerId: String
+
+  """order client id"""
+  clientId: String
+  id: String!
+}
+
+input CreateHomeInput {
+  """site name"""
+  siteName: String!
+
+  """logo"""
+  logoUrl: String!
+
+  """bannerImage id"""
+  bannerImageId: String!
+
+  """bannerTitle"""
+  bannerTitle: String!
+
+  """bannerDescription"""
+  bannerDescription: String!
+
+  """bannerFirstACtionTitle"""
+  bannerFirstACtionTitle: String!
+
+  """bannerSecondACtionTitle"""
+  bannerSecondACtionTitle: String!
+
+  """display Category"""
+  showCategory: Boolean!
+
+  """faq id"""
+  homeFaqId: String!
+
+  """display featured category"""
+  showFeatured: Boolean!
+
+  """display latest delivery"""
+  showLatest: Boolean!
+
+  """display site process"""
+  showProcess: Boolean!
+
+  """display site faq"""
+  showFaq: Boolean!
+
+  """display site optin"""
+  showOptin: Boolean!
+
+  """header id"""
+  headerId: String!
+}
+
+input UpdateHomeInput {
+  """site name"""
+  siteName: String!
+
+  """logo"""
+  logoUrl: String!
+
+  """bannerImage id"""
+  bannerImageId: String!
+
+  """bannerTitle"""
+  bannerTitle: String!
+
+  """bannerDescription"""
+  bannerDescription: String!
+
+  """bannerFirstACtionTitle"""
+  bannerFirstACtionTitle: String!
+
+  """bannerSecondACtionTitle"""
+  bannerSecondACtionTitle: String!
+
+  """display Category"""
+  showCategory: Boolean!
+
+  """faq id"""
+  homeFaqId: String!
+
+  """display featured category"""
+  showFeatured: Boolean!
+
+  """display latest delivery"""
+  showLatest: Boolean!
+
+  """display site process"""
+  showProcess: Boolean!
+
+  """display site faq"""
+  showFaq: Boolean!
+
+  """display site optin"""
+  showOptin: Boolean!
+
+  """header id"""
+  headerId: String!
+  id: String!
+}
+
+input CreateCategoryInput {
+  """category name"""
+  name: String
+
+  """category description"""
+  description: String
+
+  """category status"""
+  status: String
+
+  """display banner"""
+  displayBanner: Boolean
+
+  """sub category id"""
+  subCategoryId: String
+
+  """gig id"""
+  gigId: String
+
+  """blog id"""
+  blogId: String
+}
+
+input UpdateCategoryInput {
+  """category name"""
+  name: String
+
+  """category description"""
+  description: String
+
+  """category status"""
+  status: String
+
+  """display banner"""
+  displayBanner: Boolean
+
+  """sub category id"""
+  subCategoryId: String
+
+  """gig id"""
+  gigId: String
+
+  """blog id"""
+  blogId: String
+  id: String!
+}
+
+input CreateHeaderInput {
+  """headers id"""
+  id: String!
+
+  """headers name"""
+  name: String!
+
+  """headers menu"""
+  headerMenu: String!
+
+  """headers menu id"""
+  menuId: String!
+}
+
+input UpdateHeaderInput {
+  """headers id"""
+  id: String!
+
+  """headers name"""
+  name: String!
+
+  """headers menu"""
+  headerMenu: String!
+
+  """headers menu id"""
+  menuId: String!
+}
+
+input CreateMenuInput {
+  id: String!
+
+  """menu name"""
+  name: String!
+
+  """menu url"""
+  menuUrl: String!
+
+  """header id"""
+  headerId: String!
+
+  """subMenu id"""
+  subMenuId: String!
+}
+
+input UpdateMenuInput {
+  id: String!
+
+  """menu name"""
+  name: String!
+
+  """menu url"""
+  menuUrl: String!
+
+  """header id"""
+  headerId: String!
+
+  """subMenu id"""
+  subMenuId: String!
+}
+
+input CreateSubmenuInput {
+  id: String!
+
+  """menu name"""
+  name: String!
+
+  """menu url"""
+  menuUrl: String!
+
+  """menu id"""
+  menuId: String!
+}
+
+input UpdateSubmenuInput {
+  id: String!
+
+  """menu name"""
+  name: String!
+
+  """menu url"""
+  menuUrl: String!
+
+  """menu id"""
+  menuId: String!
+}
+
+input CreateFooterInput {
+  id: String!
+
+  """footer name"""
+  name: String!
+
+  """footer description"""
+  description: String!
+
+  """Menu"""
+  menu: String!
+}
+
+input UpdateFooterInput {
+  id: String!
+
+  """footer name"""
+  name: String!
+
+  """footer description"""
+  description: String!
+
+  """Menu"""
+  menu: String!
+}
+
+input CreateFeaturedInput {
+  id: String!
+
+  """featured services"""
+  gigs: String!
+}
+
+input UpdateFeaturedInput {
+  id: String!
+
+  """featured services"""
+  gigs: String!
+}
+
+input CreateGigformatInput {
+  """ai format name"""
+  ai: Boolean
+
+  """psd format name"""
+  psd: Boolean
+
+  """swf format name"""
+  swf: Boolean
+
+  """gif format name"""
+  gif: Boolean
+
+  """blend format name"""
+  blend: Boolean
+
+  """bmpr format name"""
+  bmpr: Boolean
+
+  """eps format name"""
+  eps: Boolean
+
+  """jpg format name"""
+  jpg: Boolean
+
+  """fig format name"""
+  fig: Boolean
+
+  """ico format name"""
+  ico: Boolean
+
+  """png format name"""
+  png: Boolean
+
+  """other format name"""
+  other: Boolean
+
+  """gig format id"""
+  gigId: String
+}
+
+input UpdateGigformatInput {
+  """ai format name"""
+  ai: Boolean
+
+  """psd format name"""
+  psd: Boolean
+
+  """swf format name"""
+  swf: Boolean
+
+  """gif format name"""
+  gif: Boolean
+
+  """blend format name"""
+  blend: Boolean
+
+  """bmpr format name"""
+  bmpr: Boolean
+
+  """eps format name"""
+  eps: Boolean
+
+  """jpg format name"""
+  jpg: Boolean
+
+  """fig format name"""
+  fig: Boolean
+
+  """ico format name"""
+  ico: Boolean
+
+  """png format name"""
+  png: Boolean
+
+  """other format name"""
+  other: Boolean
+
+  """gig format id"""
+  gigId: String
+  id: String!
+}
+
+input CreateGigTagInput {
+  """tag name"""
+  name: String
+
+  """gig id"""
+  gigId: String
+}
+
+input UpdateGigTagInput {
+  """tag name"""
+  name: String
+
+  """gig id"""
+  gigId: String
+  id: String!
+}
+
+input CreateRatingInput {
+  id: String!
+
+  """rating up"""
+  thumbsUp: String!
+
+  """rating down"""
+  thumbsDown: String!
+
+  """reviews"""
+  reviews: String!
+
+  """gig id"""
+  gigId: String!
+}
+
+input UpdateRatingInput {
+  id: String
+
+  """rating up"""
+  thumbsUp: String!
+
+  """rating down"""
+  thumbsDown: String!
+
+  """reviews"""
+  reviews: String!
+
+  """gig id"""
+  gigId: String!
+}
+
+input UpdateChatInput {
+  """message Id"""
+  messageId: String
+
+  """chat sender id"""
+  senderId: String
+
+  """chat receiver id"""
+  receiverId: String
+  id: String!
+}
+
+input CreateMessageInput {
+  """message date"""
+  date: String
+
+  """message time"""
+  time: String
+
+  """message description"""
+  description: String
+
+  """user Id"""
+  userId: String
+
+  """message file Id"""
+  fileId: String
+
+  """order Id"""
+  orderId: String
+
+  """message chat Id"""
+  chatId: String
+}
+
+input UpdateMessageInput {
+  """message date"""
+  date: String
+
+  """message time"""
+  time: String
+
+  """message description"""
+  description: String
+
+  """user Id"""
+  userId: String
+
+  """message file Id"""
+  fileId: String
+
+  """order Id"""
+  orderId: String
+
+  """message chat Id"""
+  chatId: String
+  id: String!
+}
+
+input CreateSocialMediaInput {
+  id: String!
+
+  """social name"""
+  name: String!
+
+  """social title"""
+  title: String!
+}
+
+input UpdateSocialMediaInput {
+  id: String!
+
+  """social name"""
+  name: String!
+
+  """social title"""
+  title: String!
+}
+
+input CreateOrderTemplateInput {
+  id: String!
+
+  """user message"""
+  user: String!
+
+  """date"""
+  date: String!
+
+  """revision"""
+  revision: String!
+
+  """order status"""
+  orderStatus: String!
+
+  """order amount"""
+  amount: String!
+
+  """order count"""
+  orderCount: String!
+
+  """order source file"""
+  sourceFile: Boolean!
+
+  """commercial order"""
+  commercial: Boolean!
+
+  """rush order"""
+  rushOrder: Boolean!
+
+  """order end"""
+  end: String!
+}
+
+input UpdateOrderTemplateInput {
+  id: String!
+
+  """user message"""
+  user: String!
+
+  """date"""
+  date: String!
+
+  """revision"""
+  revision: String!
+
+  """order status"""
+  orderStatus: String!
+
+  """order amount"""
+  amount: String!
+
+  """order count"""
+  orderCount: String!
+
+  """order source file"""
+  sourceFile: Boolean!
+
+  """commercial order"""
+  commercial: Boolean!
+
+  """rush order"""
+  rushOrder: Boolean!
+
+  """order end"""
+  end: String!
+}
+
+input CreateFileInput {
+  """file name"""
+  name: String
+
+  """banner id"""
+  bannerId: String
+
+  """image"""
+  image: String
+
+  """audio"""
+  audio: String!
+
+  """video"""
+  video: String!
+
+  """GIF"""
+  gif: String
+
+  """documents"""
+  document: String
+}
+
+input UpdateFileInput {
+  """file name"""
+  name: String
+
+  """banner id"""
+  bannerId: String
+
+  """image"""
+  image: String
+
+  """audio"""
+  audio: String!
+
+  """video"""
+  video: String!
+
+  """GIF"""
+  gif: String
+
+  """documents"""
+  document: String
+  id: String!
+}
+
+input CreateOrderRequirementInput {
+  """order description"""
+  description: String
+
+  """requirement creation date"""
+  date: String
+
+  """order reference"""
+  reference: String
+
+  """order color"""
+  color: String
+
+  """order requirement id"""
+  orderId: String
+}
+
+input UpdateOrderRequirementInput {
+  """order description"""
+  description: String
+
+  """requirement creation date"""
+  date: String
+
+  """order reference"""
+  reference: String
+
+  """order color"""
+  color: String
+
+  """order requirement"""
+  orderId: String
+  id: String!
+}
+
+input CreateOrderFaqInput {
+  id: String!
+
+  """faq name"""
+  name: String!
+
+  """faq status"""
+  status: String!
+
+  """faq description"""
+  description: String!
+
+  """order Id"""
+  orderId: String!
+}
+
+input UpdateOrderFaqInput {
+  id: String!
+
+  """faq name"""
+  name: String!
+
+  """faq status"""
+  status: String!
+
+  """faq description"""
+  description: String!
+
+  """order Id"""
+  orderId: String!
+}
+
+input CreateFavoriteInput {
+  id: String!
+
+  """name of gigs"""
+  gigs: String!
+
+  """gig id"""
+  gigId: String!
+
+  """userId"""
+  userid: String!
+}
+
+input UpdateFavoriteInput {
+  id: String!
+
+  """name of gigs"""
+  gigs: String!
+
+  """gig id"""
+  gigId: String!
+
+  """userId"""
+  userid: String!
+}
+
+input CreateBlogInput {
+  """blog title"""
+  name: String
+
+  """blog date"""
+  createdAt: String
+
+  """blog content"""
+  description: String
+
+  """blog content mark down"""
+  descriptionMarkDown: String
+
+  """blog status"""
+  status: String
+
+  """blog slug"""
+  slug: String
+
+  """blog category id"""
+  categoryId: String
+
+  """blog file id"""
+  fileId: String
+
+  """blog comment id"""
+  commentId: String
+
+  """blog user id"""
+  userId: String
+}
+
+input UpdateBlogInput {
+  """blog title"""
+  name: String
+
+  """blog date"""
+  createdAt: String
+
+  """blog content"""
+  description: String
+
+  """blog content mark down"""
+  descriptionMarkDown: String
+
+  """blog status"""
+  status: String
+
+  """blog slug"""
+  slug: String
+
+  """blog file id"""
+  categoryId: String
+
+  """blog file id"""
+  fileId: String
+
+  """blog comment id"""
+  commentId: String
+
+  """blog user id"""
+  userId: String
+  id: String!
+}
+
+input CreateCommentInput {
+  """comment description"""
+  description: String
+
+  """comment date"""
+  createdAt: String
+
+  """blog comment"""
+  blogId: String
+
+  """userId comment"""
+  userId: String
+}
+
+input UpdateCommentInput {
+  """comment description"""
+  description: String
+
+  """comment date"""
+  createdAt: String
+
+  """blog comment"""
+  blogId: String
+
+  """userId comment"""
+  userId: String
+  id: String!
+}
+
+input CreateComplaintInput {
+  id: String!
+  user: String!
+  description: String!
+}
+
+input UpdateComplaintInput {
+  id: String!
+  user: String!
+  description: String!
+}
+
+input CreateHomeFaqInput {
+  """faq name"""
+  name: String
+
+  """faq description"""
+  description: String
+}
+
+input UpdateHomeFaqInput {
+  """faq name"""
+  name: String
+
+  """faq description"""
+  description: String
+  id: String!
+}
+
+input CreateReferenceInput {
+  """reference name"""
+  name: String
+
+  """reference description"""
+  description: String
+
+  """reference default"""
+  selected: Boolean
+
+  """reference id"""
+  fileId: String
+
+  """gig reference id"""
+  gigReferenceId: String
+
+  """gig reference id"""
+  userId: String
+}
+
+input UpdateReferenceInput {
+  """reference name"""
+  name: String
+
+  """reference description"""
+  description: String
+
+  """reference default"""
+  selected: Boolean
+
+  """reference id"""
+  fileId: String
+
+  """gig reference id"""
+  gigReferenceId: String
+
+  """gig reference id"""
+  userId: String
+  id: String!
+}
+
+input CreateNotificationInput {
+  """notification name)"""
+  name: String
+
+  """notification description)"""
+  description: String
+
+  """notification date)"""
+  createdAt: String
+
+  """notification date)"""
+  userId: String
+}
+
+input UpdateNotificationInput {
+  """notification name)"""
+  name: String
+
+  """notification description)"""
+  description: String
+
+  """notification date)"""
+  createdAt: String
+
+  """notification date)"""
+  userId: String
+  id: String!
+}
+
+input CreateBannerInput {
+  """bannerTitle"""
+  bannerTitle: String
+
+  """bannerDescription"""
+  bannerDescription: String
+
+  """bannerMiddleContent"""
+  bannerMiddleContent: String
+
+  """bannerFirstACtionTitle"""
+  bannerFirstActionTitle: String
+
+  """bannerSecondACtionTitle"""
+  bannerSecondACtionTitle: String
+
+  """file id"""
+  fileId: String
+}
+
+input UpdateBannerInput {
+  """bannerTitle"""
+  bannerTitle: String
+
+  """bannerDescription"""
+  bannerDescription: String
+
+  """bannerMiddleContent"""
+  bannerMiddleContent: String
+
+  """bannerFirstACtionTitle"""
+  bannerFirstActionTitle: String
+
+  """bannerSecondACtionTitle"""
+  bannerSecondACtionTitle: String
+
+  """file id"""
+  fileId: String
+  id: String!
+}
+
+input CreateFaqImageInput {
+  id: String!
+
+  """fileId"""
+  fileId: String
+}
+
+input UpdateFaqImageInput {
+  id: String!
+
+  """fileId"""
+  fileId: String
+}
+
+input CreateSubCategoryInput {
+  """category name"""
+  name: String
+
+  """category description"""
+  description: String
+
+  """category status"""
+  status: String
+
+  """gig id"""
+  gigId: String
+
+  """category id"""
+  categoryId: String
+}
+
+input UpdateSubCategoryInput {
+  """category name"""
+  name: String
+
+  """category description"""
+  description: String
+
+  """category status"""
+  status: String
+
+  """gig id"""
+  gigId: String
+
+  """category id"""
+  categoryId: String
+  id: String!
+}
+
+input CreateRushOrderInput {
+  """status"""
+  status: Boolean
+
+  """price"""
+  price: String
+
+  """deliveryPeriod"""
+  deliveryPeriod: String
+
+  """gig id"""
+  gigId: String
+}
+
+input UpdateRushOrderInput {
+  """status"""
+  status: Boolean
+
+  """price"""
+  price: String
+
+  """deliveryPeriod"""
+  deliveryPeriod: String
+
+  """gig id"""
+  gigId: String
+  id: String!
+}
+
+input CreateCommercialUseInput {
+  """status"""
+  status: Boolean
+
+  """price"""
+  price: String
+
+  """deliveryPeriod"""
+  deliveryPeriod: String
+
+  """gigId"""
+  gigId: String
+}
+
+input UpdateCommercialUseInput {
+  """status"""
+  status: Boolean
+
+  """price"""
+  price: String
+
+  """deliveryPeriod"""
+  deliveryPeriod: String
+
+  """gigId"""
+  gigId: String
+  id: String!
+}
+
+input CreatePrivateCommissionInput {
+  """status"""
+  status: Boolean
+
+  """price"""
+  price: String
+
+  """deliveryPeriod"""
+  deliveryPeriod: String
+
+  """gig id"""
+  gigId: String
+}
+
+input UpdatePrivateCommissionInput {
+  """status"""
+  status: Boolean
+
+  """price"""
+  price: String
+
+  """deliveryPeriod"""
+  deliveryPeriod: String
+
+  """gig id"""
+  gigId: String
+  id: String!
+}
+
+input CreateGigFaqInput {
+  """faq name"""
+  name: String
+
+  """faq description"""
+  description: String
+
+  """gig faq id"""
+  gigId: String
+}
+
+input UpdateGigFaqInput {
+  """faq name"""
+  name: String
+
+  """faq description"""
+  description: String
+
+  """gig faq id"""
+  gigId: String
+  id: String!
+}
+
+input CreateGigRequirementInput {
+  """requirement name"""
+  requirementName: String
+
+  """required faq"""
+  required: Boolean
+
+  """faq text"""
+  text: Boolean
+
+  """faq link url"""
+  link: Boolean
+
+  """faq gig id"""
+  gigId: String
+}
+
+input UpdateGigRequirementInput {
+  """requirement name"""
+  requirementName: String
+
+  """required faq"""
+  required: Boolean
+
+  """faq text"""
+  text: Boolean
+
+  """faq link url"""
+  link: Boolean
+
+  """faq gig id"""
+  gigId: String
+  id: String!
+}
+
+input CreateGigGalleryInput {
+  """gig name"""
+  name: String
+
+  """gig gallery"""
+  selected: Boolean
+
+  """fileId"""
+  fileId: String
+
+  """gig Id"""
+  gigId: String
+}
+
+input UpdateGigGalleryInput {
+  """gig name"""
+  name: String
+
+  """gig gallery"""
+  selected: Boolean
+
+  """fileId"""
+  fileId: String
+
+  """gig Id"""
+  gigId: String
+  id: String!
+}
+
+input CreateGigVideoInput {
+  """gig name"""
+  name: String
+
+  """gig default video"""
+  selected: Boolean
+
+  """fileId"""
+  fileId: String
+
+  """gig Id"""
+  gigId: String
+}
+
+input UpdateGigVideoInput {
+  """gig name"""
+  name: String
+
+  """gig default video"""
+  selected: Boolean
+
+  """fileId"""
+  fileId: String
+
+  """gig Id"""
+  gigId: String
+  id: String!
+}
+
+input CreateOrderFeedbackInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateOrderFeedbackInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateTransactionInput {
+  """date"""
+  date: String
+
+  """description"""
+  description: String
+
+  """commission rate"""
+  commission: String
+
+  """transaction type"""
+  transactionType: String
+
+  """transactionSenderId"""
+  transactionSenderId: String
+
+  """transactionReceiverId"""
+  transactionReceiverId: String
+
+  """earningId"""
+  earningId: String
+
+  """transaction status"""
+  status: String
+}
+
+input UpdateTransactionInput {
+  """date"""
+  date: String
+
+  """description"""
+  description: String
+
+  """commission rate"""
+  commission: String
+
+  """transaction type"""
+  transactionType: String
+
+  """transactionSenderId"""
+  transactionSenderId: String
+
+  """transactionReceiverId"""
+  transactionReceiverId: String
+
+  """earningId"""
+  earningId: String
+
+  """transaction status"""
+  status: String
+  id: String!
+}
